@@ -171,3 +171,50 @@ Chi phí và Nguồn lực: Xây dựng một trang TMĐT hoàn chỉnh, dù ch�
 Với những yếu tố cốt lõi này, V1 của bạn sẽ có một nền tảng vững chắc để vận hành và thu hút những khách hàng đầu tiên. Các tính năng nâng cao hơn cho thị trường "ngoài nước" và các tiện ích gia tăng khác có thể được phát triển trong V2 và V3.
 
 Chúc bạn thành công với dự án của mình! Hãy cho tôi biết nếu bạn có bất kỳ câu hỏi cụ thể nào khác.
+
+---
+
+## Project Setup and Running Instructions
+
+### Backend Setup
+
+To get the backend server up and running, follow these steps:
+
+1.  **Navigate to the Backend Directory:**
+    ```bash
+    cd backend
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment Variables:**
+    *   Create a `.env` file by copying the example file:
+        ```bash
+        cp .env.example .env
+        ```
+    *   Open the `.env` file and update it with your actual PostgreSQL database credentials (`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`) and a secure `JWT_SECRET` for token generation.
+
+4.  **Database Setup:**
+    *   Ensure you have a PostgreSQL server running and accessible with the credentials you provided in the `.env` file.
+    *   The database schema (table definitions) is located in `backend/src/database/schema.sql`. You will need to execute this SQL against your PostgreSQL database to create the necessary tables. This is currently a manual step. Future improvements could include a migration system.
+
+5.  **Start the Backend Server:**
+    ```bash
+    npm start
+    ```
+    This command runs `node src/app.js` as defined in `backend/package.json`.
+
+### Backend API Information
+
+*   The backend API server will typically run on `http://localhost:3001` (or the port specified in your `.env` file, e.g., `PORT=3001`).
+*   Interactive API documentation (Swagger UI) is available at the `/api-docs` endpoint when the backend server is running (e.g., `http://localhost:3001/api-docs`).
+*   **Main API Endpoints:**
+    *   **Authentication:** `/api/auth` (handles user registration, login)
+    *   **Products:** `/api/products` (handles CRUD operations for products)
+
+### Frontend Setup
+
+(Instructions for setting up and running the React frontend will be added here once it's developed.)
